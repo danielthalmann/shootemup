@@ -10,6 +10,8 @@ public class PlayerLive : MonoBehaviour
     [Range(0, 1000)]
     public int maxLive = 100;
 
+    public HealthBar bar;
+
     private void Start()
     {
         live = maxLive; 
@@ -22,10 +24,13 @@ public class PlayerLive : MonoBehaviour
         if (live < 0)
             live = 0;
 
+
         if ( live == 0 )
         {
             // end !
         }
+
+        bar.SetHealth((float)(live) / maxLive);
 
     }
 
