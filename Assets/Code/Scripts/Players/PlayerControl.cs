@@ -55,14 +55,6 @@ public class PlayerControl : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log(other.gameObject.tag);
-        if (other.gameObject.CompareTag("FireEnemy"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
 
 
 }

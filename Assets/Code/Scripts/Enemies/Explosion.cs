@@ -14,14 +14,19 @@ public class Explosion : MonoBehaviour
         
     }
 
+    public void Explose()
+    {
+        GameObject g = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
+        Destroy(g, 1);
+        Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("FireAllied"))
         {
-            GameObject g = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
-            Destroy(g, 1);
             Destroy(other.gameObject);
-            Destroy(gameObject);
+            Explose();
         }
     }  
 
