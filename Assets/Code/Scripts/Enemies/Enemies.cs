@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemies : MonoBehaviour
 {
@@ -10,9 +11,12 @@ public class Enemies : MonoBehaviour
     private float time = 0f;
     private int count = 0;
     private int wave = 0;
+    private bool endWave = false;
     private bool startWave = false;
 
     public List<EnemyWaves> waves;
+
+    public UnityEvent onEndWave;
 
 
     // Start is called before the first frame update
@@ -42,7 +46,7 @@ public class Enemies : MonoBehaviour
 
                 if (time > waves[wave].interval) { 
         
-                    GameObject obj = Instantiate(waves[wave].enemy);
+                    GameObject obj = Instantiate(waves[wave].enemy, waves[wave].path.GetPositionAt(0), waves[wave].path.gameObject.transform.rotation);
                     FollowPath follow = obj.GetComponent<FollowPath>();
 
                     follow.path = waves[wave].path;
@@ -60,6 +64,13 @@ public class Enemies : MonoBehaviour
 
             }
 
+        } else
+        {
+            if (!endWave)
+            {
+                onEndWave?.Invoke();
+                endWave = true;
+            }
         }
 
 

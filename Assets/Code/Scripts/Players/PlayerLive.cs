@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class PlayerLive : MonoBehaviour
 {
@@ -12,6 +14,10 @@ public class PlayerLive : MonoBehaviour
 
     public HealthBar bar;
 
+    public UnityEvent<float> onChangeLive;
+    public UnityEvent<int> onDamage;
+    public UnityEvent onDeath;
+
     private void Start()
     {
         live = maxLive; 
@@ -19,18 +25,18 @@ public class PlayerLive : MonoBehaviour
 
     public void Damage(int value)
     {
-        live -= value;
 
-        if (live < 0)
-            live = 0;
-
-
-        if ( live == 0 )
-        {
-            // end !
+        if (live > 0) {
+            live -= value;
+            if (live < 1) {
+                live = 0;
+                onDeath.Invoke();
+            } else {
+                onDamage.Invoke(value);
+            }
         }
 
-        bar.SetHealth((float)(live) / maxLive);
+        onChangeLive.Invoke((float)(live) / maxLive);
 
     }
 

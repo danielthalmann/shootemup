@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionPrefab: {fileID: 1344841644576474714, guid: f35bdf0e899d202479135d76b568412c, type: 3}
+  exploseOnTriggerTag: FireAllied
 --- !u!114 &-8936518519028698904
 MonoBehaviour:
   m_ObjectHideFlags: 0

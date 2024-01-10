@@ -7,6 +7,7 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public GameObject ExplosionPrefab;
+    public string exploseOnTriggerTag = "";
 
     // Update is called once per frame
     void Update()
@@ -23,10 +24,16 @@ public class Explosion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("FireAllied"))
+
+        if (exploseOnTriggerTag != "")
         {
-            Destroy(other.gameObject);
-            Explose();
+
+            if (other.gameObject.CompareTag(exploseOnTriggerTag))
+            {
+            Debug.Log(other.gameObject.tag);
+                Destroy(other.gameObject);
+                Explose();
+            }
         }
     }  
 

@@ -16,7 +16,7 @@ public class VectorFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 v = new Vector3(direction.x, direction.y, 0) * speed;
+        Vector3 v = new Vector3(direction.x, direction.y, 0) * (speed * Time.deltaTime);
 
         transform.position = transform.position + v;
         
