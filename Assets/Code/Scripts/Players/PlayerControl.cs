@@ -9,7 +9,7 @@ public class PlayerControl : MonoBehaviour
     public GameObject projectile;
 
     public float speed = 0.2f;
-    public float fire_interval = 1000.0f;
+    public float fire_interval = 0.18f;
 
     private float elapse = 0;
 
@@ -29,7 +29,13 @@ public class PlayerControl : MonoBehaviour
             Start();
 
         Vector2 direction = PlayerInput.Player.Movement.ReadValue<Vector2>() * speed;
-        transform.Translate(direction);
+
+        Rect rect = CameraUtils.GetRectScreenWorld();
+
+        Vector2 position2D = new Vector2(transform.position.x, transform.position.y);
+
+        if ( rect.Contains(position2D + direction) )
+            transform.Translate(direction);
 
         elapse += Time.deltaTime;
 
