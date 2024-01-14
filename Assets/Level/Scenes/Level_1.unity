@@ -1436,6 +1436,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8031860191230795407, guid: 8ea57766cfbe59a44b8a6141f5fe7b7d, type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031860191230795407, guid: 8ea57766cfbe59a44b8a6141f5fe7b7d, type: 3}
       propertyPath: interval
       value: 0.2
       objectReference: {fileID: 0}

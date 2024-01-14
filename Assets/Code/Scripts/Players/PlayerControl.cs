@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -27,18 +28,36 @@ public class PlayerControl : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
 
         if (PlayerInput == null)
             Start();
 
-        Vector2 direction = PlayerInput.Player.Movement.ReadValue<Vector2>() * speed;
+        Vector2 direction = PlayerInput.Player.Movement.ReadValue<Vector2>() * speed * Time.deltaTime;
 
-        Vector2 position2D = new Vector2(transform.position.x, transform.position.y);
+        Vector2 newPosition = new Vector2(transform.position.x, transform.position.y) + direction;
 
-        if ( rect.Contains(position2D + direction) )
-            transform.Translate(direction);
+        if ( !rect.Contains(newPosition) )
+        {
+            if (newPosition.y < rect.y)
+            {
+                newPosition.y = rect.y;
+            }
+            if (newPosition.y > rect.y + rect.height)
+            {
+                newPosition.y = rect.y + rect.height;
+            }
+            if (newPosition.x < rect.x)
+            {
+                newPosition.x = rect.x;
+            }
+            if (newPosition.x > rect.x + rect.width)
+            {
+                newPosition.x = rect.x + rect.width;
+            }
+        }
+        transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
 
         elapse += Time.deltaTime;
 
