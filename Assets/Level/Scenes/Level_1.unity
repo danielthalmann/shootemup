@@ -917,8 +917,9 @@ GameObject:
   - component: {fileID: 703908786}
   - component: {fileID: 703908788}
   - component: {fileID: 703908787}
+  - component: {fileID: 703908789}
   m_Layer: 0
-  m_Name: Game System
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -974,6 +975,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a474673db1cc3e545b2f57236ca4397c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &703908789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703908785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bcf080f38945ec45b8fb3482124a433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startState: 0
+  onIntroduction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1856724375}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1013175648}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPlay:
+    m_PersistentCalls:
+      m_Calls: []
+  onWin:
+    m_PersistentCalls:
+      m_Calls: []
+  onLose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &735932197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1171,7 @@ GameObject:
   - component: {fileID: 757516876}
   - component: {fileID: 757516875}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Event System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1457,7 +1507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8031860191230795408, guid: 8ea57766cfbe59a44b8a6141f5fe7b7d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.35
+      value: -2.77
       objectReference: {fileID: 0}
     - target: {fileID: 8031860191230795408, guid: 8ea57766cfbe59a44b8a6141f5fe7b7d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2367,6 +2417,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplosionPrefab: {fileID: 1344841644576474714, guid: f35bdf0e899d202479135d76b568412c, type: 3}
   exploseOnTriggerTag: 
+--- !u!114 &1856724375 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8031860191230795407, guid: 8ea57766cfbe59a44b8a6141f5fe7b7d, type: 3}
+  m_PrefabInstance: {fileID: 1039325998}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856724367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd542bfd067a4154bad9e252bfb9655f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1901642310
 GameObject:
   m_ObjectHideFlags: 0
