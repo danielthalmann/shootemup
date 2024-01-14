@@ -15,10 +15,15 @@ public class PlayerControl : MonoBehaviour
 
     PlayerInputActions PlayerInput;
 
+    Rect rect;
+
     private void Start()
     {
         PlayerInput = new PlayerInputActions();
         PlayerInput.Player.Enable();
+
+        rect = CameraUtils.GetRectScreenWorld();
+        Debug.Log(rect);
 
     }
 
@@ -29,8 +34,6 @@ public class PlayerControl : MonoBehaviour
             Start();
 
         Vector2 direction = PlayerInput.Player.Movement.ReadValue<Vector2>() * speed;
-
-        Rect rect = CameraUtils.GetRectScreenWorld();
 
         Vector2 position2D = new Vector2(transform.position.x, transform.position.y);
 

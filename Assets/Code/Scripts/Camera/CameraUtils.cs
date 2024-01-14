@@ -15,7 +15,7 @@ public class CameraUtils
     {
         Vector2 world = CameraUtils.GetScreenToWorld();
 
-        return new Rect(-world.x, world.y / 2, world.x, world.y);
+        return new Rect(-world.x / 2, -world.y / 2, world.x, world.y);
 
     }
 

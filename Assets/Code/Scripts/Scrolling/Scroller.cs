@@ -52,7 +52,8 @@ public class Scroller : MonoBehaviour
         SpriteRenderer s = istc.GetComponent<SpriteRenderer>();
         float ratio = s.size.y / s.size.x;
 
-        width = GetScreenToWorldWidth;
+        width = CameraUtils.GetScreenToWorld().x;
+
         height = (width * ratio);
         start = (-2 * height);
 
