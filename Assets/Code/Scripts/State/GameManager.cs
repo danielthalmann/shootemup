@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour
     {
         
     }
+    public void ChangeStateInPlay()
+    {
+
+        ChangeState(GameState.in_play);
+
+    }
 
     public void ChangeState(GameState state)
     {
