@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class Enemies : MonoBehaviour
 {
 
-    public float interval = 1.0f;
+    public float waitBeforeEnd = 1.0f;
 
     private float time = 0f;
     private int count = 0;
@@ -68,9 +68,18 @@ public class Enemies : MonoBehaviour
         {
             if (!endWave)
             {
-                onEndWave?.Invoke();
-                endWave = true;
+                time += Time.deltaTime;
+
+                if (time > waitBeforeEnd)
+                {
+
+                    onEndWave?.Invoke();
+                    endWave = true;
+                    
+                }
+
             }
+
         }
 
 

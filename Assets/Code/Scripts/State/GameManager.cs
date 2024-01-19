@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent onPlay;
     public UnityEvent onWin;
     public UnityEvent onLose;
+    public UnityEvent onLeave;
 
 
     private GameState currentState;
@@ -26,10 +27,31 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public void ChangeStateInPlay()
+    public void Play()
     {
 
         ChangeState(GameState.in_play);
+
+    }
+
+    public void Win()
+    {
+
+        ChangeState(GameState.win);
+
+    }
+
+    public void Lose()
+    {
+
+        ChangeState(GameState.lose);
+
+    }
+
+    public void Leave()
+    {
+
+        ChangeState(GameState.leave);
 
     }
 
@@ -49,6 +71,9 @@ public class GameManager : MonoBehaviour
             case GameState.lose:
                 onLose?.Invoke();
                 break;
+            case GameState.leave:
+                onLeave?.Invoke();
+                break;
             default:
                 throw(new System.Exception("invalid state"));
         }
@@ -61,5 +86,6 @@ public enum GameState
     introduction,
     in_play,
     win,
-    lose
+    lose,
+    leave
 }

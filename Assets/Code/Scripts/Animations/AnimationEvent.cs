@@ -1,5 +1,9 @@
+
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +12,7 @@ public class AnimationEvent : MonoBehaviour
     public UnityEvent onFinish;
 
     private Animator animator;
+    private bool invoked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +24,17 @@ public class AnimationEvent : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0)
+        if (!invoked)
         {
-            onFinish?.Invoke();
-            this.enabled = false;
+            if (animator?.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.999)
+            {
+                invoked = true;
+                Debug.Log("Finish Anim");
+                onFinish?.Invoke();
+            } else
+            {
+                Debug.Log(animator?.GetCurrentAnimatorStateInfo(0).normalizedTime);
+            }
         }
         
     }
