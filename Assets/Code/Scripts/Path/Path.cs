@@ -69,7 +69,7 @@ public class Path : MonoBehaviour
 
         p = GetPositionAt(position);
         Gizmos.color = Color.green;
-        Gizmos.DrawSphere(p, 0.5f); 
+        Gizmos.DrawSphere(p, 0.2f); 
 
     }
 
