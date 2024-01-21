@@ -31,9 +31,6 @@ public class AnimationEvent : MonoBehaviour
                 invoked = true;
                 Debug.Log("Finish Anim");
                 onFinish?.Invoke();
-            } else
-            {
-                Debug.Log(animator?.GetCurrentAnimatorStateInfo(0).normalizedTime);
             }
         }
         
