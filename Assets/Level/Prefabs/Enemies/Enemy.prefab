@@ -115,6 +115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fire: {fileID: 7025698798279328225, guid: 0e792a6b5c44bf444b45ec57d176b384, type: 3}
   interval: 1
+  projectile_position: {fileID: 0}
+  target_player: 0
 --- !u!114 &6275358804805498522
 MonoBehaviour:
   m_ObjectHideFlags: 0
