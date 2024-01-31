@@ -116,7 +116,7 @@ MonoBehaviour:
   fire: {fileID: 7025698798279328225, guid: 0e792a6b5c44bf444b45ec57d176b384, type: 3}
   interval: 1
   projectile_position: {fileID: 0}
-  target_player: 0
+  target_player: 1
 --- !u!114 &6275358804805498522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,14 +168,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7098144261520652987}
-  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1305309624422748928}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &590483068703595815
 SpriteRenderer:
   m_ObjectHideFlags: 0

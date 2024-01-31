@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,9 +17,12 @@ public class VectorFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 v = new Vector3(direction.x, direction.y, 0) * (speed * Time.deltaTime);
+        Vector3 orientation = new Vector3(direction.x, direction.y, 0).normalized;
 
-        transform.position = transform.position + v;
+        Vector3 position = orientation * (speed * Time.deltaTime);
+
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, orientation);
+        transform.position = transform.position + position;
         
     }
 }
