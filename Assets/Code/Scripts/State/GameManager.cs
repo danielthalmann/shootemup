@@ -59,6 +59,27 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void StartBoss()
+    {
+
+        ChangeState(GameState.start_boss);
+
+    }
+
+    public void Boss()
+    {
+
+        ChangeState(GameState.boss);
+
+    }
+
+    public void FinishBoss()
+    {
+
+        ChangeState(GameState.finish_boss);
+
+    }
+
     public void ChangeState(GameState state)
     {
         switch (state)
