@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public GameState startState = GameState.introduction;
 
     public UnityEvent onIntroduction;
-    public UnityEvent onPlay;
+    public UnityEvent onStartWave;
     public UnityEvent onFinishWave;
     public UnityEvent onStartBoss;
     public UnityEvent onBoss;
@@ -31,10 +31,17 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public void Play()
+    public void StartWave()
     {
 
-        ChangeState(GameState.in_play);
+        ChangeState(GameState.start_wave);
+
+    }
+
+    public void FinishWave()
+    {
+
+        ChangeState(GameState.finish_wave);
 
     }
 
@@ -87,8 +94,11 @@ public class GameManager : MonoBehaviour
             case GameState.introduction:
                 onIntroduction?.Invoke();
                 break;
-            case GameState.in_play:
-                onPlay?.Invoke();
+            case GameState.start_wave:
+                onStartWave?.Invoke();
+                break;
+            case GameState.finish_wave:
+                onFinishWave?.Invoke();
                 break;
             case GameState.win:
                 onWin?.Invoke();
@@ -118,7 +128,8 @@ public class GameManager : MonoBehaviour
 public enum GameState
 {
     introduction,
-    in_play,
+    start_wave,
+    finish_wave,
     start_boss,
     boss,
     finish_boss,
