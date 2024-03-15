@@ -37,9 +37,7 @@ public class FollowPath : MonoBehaviour
             transform.position = path.GetPositionAt(t);
             vect = after - transform.position;
             vect.Normalize();
-            //transform.GetChild(0).rotation = Quaternion.Euler(0, 0, Mathf.Sin(vect.x) * 90);
             transform.GetChild(0).rotation = Quaternion.LookRotation(Vector3.forward, vect);
-            //transform.rotation = Quaternion.Euler(0, 0, Mathf.Sin(vect.x) * 90);
 
         }
         else

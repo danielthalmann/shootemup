@@ -22,6 +22,8 @@ public class PlayerControl : MonoBehaviour
 
     Vector2 last_rotation;
 
+    public bool enableControl = true;
+
     private void Start()
     {
         PlayerInput = new PlayerInputActions();
@@ -43,11 +45,20 @@ public class PlayerControl : MonoBehaviour
         if (PlayerInput == null)
             Start();
 
-        Vector2 direction = PlayerInput.Player.Movement.ReadValue<Vector2>() * speed * Time.deltaTime;
+        Vector2 direction;
+
+        if (enableControl)
+        {
+            direction = PlayerInput.Player.Movement.ReadValue<Vector2>() * speed * Time.deltaTime;
+        } else
+        {
+            direction = Vector2.zero;
+        }
         applyRotation(direction);
 
         Vector2 newPosition = new Vector2(transform.position.x, transform.position.y) + direction;
 
+        // limite la position du véseau à la taille de l'écran
         if ( !rect.Contains(newPosition) )
         {
             if (newPosition.y < rect.y)
@@ -71,7 +82,7 @@ public class PlayerControl : MonoBehaviour
 
         elapse += Time.deltaTime;
 
-        if (PlayerInput.Player.Fire.IsPressed())
+        if (enableControl && PlayerInput.Player.Fire.IsPressed())
         {
             if (elapse > fire_interval) {
                 elapse = 0;
@@ -109,6 +120,16 @@ public class PlayerControl : MonoBehaviour
         last_rotation = Vector2.Lerp(last_rotation, rotation_anim, Time.deltaTime * speed_rotation);
 
         prefab_starship.transform.rotation = Quaternion.Euler(last_rotation.y, last_rotation.x, 0);
+    }
+
+    public void EnableControl() 
+    { 
+        enableControl= true;
+    }
+
+    public void DisableControl()
+    {
+        enableControl= false;
     }
 
 
