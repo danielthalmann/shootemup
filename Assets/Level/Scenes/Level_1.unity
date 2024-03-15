@@ -5123,7 +5123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   live: 0
-  maxLive: 400
+  maxLive: 600
   collisionTagName: None
   triggerTagName: FireAllied
   onChangeLive:
