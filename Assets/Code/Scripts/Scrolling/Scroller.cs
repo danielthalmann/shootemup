@@ -14,28 +14,7 @@ public class Scroller : MonoBehaviour
     private float height;
     private float start;
 
-        public static float GetScreenToWorldHeight
-    {
-        get
-        {
-            Vector2 topRightCorner = new Vector2(1, 1);
-            Vector2 edgeVector = Camera.main.ViewportToWorldPoint(topRightCorner); 
-            float height = edgeVector.y * 2;
-            return height;
-        }
-    }
-
-    public static float GetScreenToWorldWidth
-    {
-        get
-        {
-            Vector2 topRightCorner = new Vector2(1, 1);
-            Vector2 edgeVector = Camera.main.ViewportToWorldPoint(topRightCorner); 
-            float width = edgeVector.x * 2;
-            return width;
-        }
-    }
-
+    public bool animate = true;
 
     // Start is called before the first frame update
     void Start()
@@ -74,13 +53,25 @@ public class Scroller : MonoBehaviour
 
         if (start < (-2 * height))
             start += height;
-        
-        
-        for (int i = 0; i < transform.childCount; i++)
+
+        if (animate)
         {
-            transform.GetChild(i).transform.position = new Vector3(0, start + (height * i));
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).transform.position = new Vector3(0, start + (height * i));
+            }
         }
 
+    }
+
+    public void StartScroller()
+    {
+        animate = true;
+    }
+
+    public void StopScroller()
+    {
+        animate = false;
     }
 
 }
