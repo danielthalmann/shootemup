@@ -11,12 +11,13 @@ public class PlayerLive : MonoBehaviour
 
     [Range(0, 1000)]
     public int maxLive = 100;
-
-    public HealthBar bar;
+    public string collisionTagName = "Enemy";
+    public string triggerTagName = "FireEnemy";
 
     public UnityEvent<float> onChangeLive;
     public UnityEvent<int> onDamage;
     public UnityEvent onDeath;
+
 
     private void Start()
     {
@@ -42,7 +43,7 @@ public class PlayerLive : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag(collisionTagName))
         {
             Explosion ex = collision.gameObject.GetComponent<Explosion>();
             ex.Explose();
@@ -56,7 +57,7 @@ public class PlayerLive : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("FireEnemy"))
+        if (other.gameObject.CompareTag(triggerTagName))
         {
             Damage d = other.gameObject.GetComponent<Damage>();
             if (d != null)

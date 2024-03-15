@@ -165,6 +165,7 @@ MonoBehaviour:
   prefab_starship: {fileID: 2537450288480369605}
   speed: 8
   fire_interval: 0.18
+  enableControl: 1
 --- !u!114 &1939665162478207613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   live: 0
   maxLive: 100
-  bar: {fileID: 0}
+  collisionTagName: Enemy
+  triggerTagName: FireEnemy
   onChangeLive:
     m_PersistentCalls:
       m_Calls:
@@ -227,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplosionPrefab: {fileID: 1344841644576474714, guid: f35bdf0e899d202479135d76b568412c, type: 3}
   exploseOnTriggerTag: 
+  destroyObject: 1
 --- !u!1001 &2768604950200783881
 PrefabInstance:
   m_ObjectHideFlags: 0

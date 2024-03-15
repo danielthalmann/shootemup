@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 4267123689409662229}
   - component: {fileID: 6815895658033371296}
   - component: {fileID: 6280238200095577130}
+  - component: {fileID: 7126667794854699575}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: FireAllied
@@ -158,3 +159,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 1}
   speed: 8
+--- !u!114 &7126667794854699575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334878729959187886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b74a3de2302594c89fb2ff60fd0bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageValue: 10

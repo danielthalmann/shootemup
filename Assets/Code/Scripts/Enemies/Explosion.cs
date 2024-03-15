@@ -5,17 +5,31 @@ public class Explosion : MonoBehaviour
     public GameObject ExplosionPrefab;
     public string exploseOnTriggerTag = "";
 
+    public bool destroyObject = true;
+
+
     // Update is called once per frame
     void Update()
     {
         
     }
 
-    public void Explose()
+    public void Explose(GameObject triggerObject = null)
     {
-        GameObject g = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
+        Transform trans;
+        if (triggerObject)
+        {
+            trans = triggerObject.transform;
+        } else
+        {
+            trans = transform;
+        }
+        GameObject g = Instantiate(ExplosionPrefab, trans.position, trans.rotation);
         Destroy(g, 1);
-        Destroy(gameObject);
+        if (destroyObject)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -26,9 +40,8 @@ public class Explosion : MonoBehaviour
 
             if (other.gameObject.CompareTag(exploseOnTriggerTag))
             {
-            Debug.Log(other.gameObject.tag);
+                Explose(other.gameObject);
                 Destroy(other.gameObject);
-                Explose();
             }
         }
     }  
