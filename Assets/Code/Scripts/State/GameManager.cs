@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent onIntroduction;
     public UnityEvent onPlay;
+    public UnityEvent onFinishWave;
+    public UnityEvent onStartBoss;
+    public UnityEvent onBoss;
+    public UnityEvent onFinishBoss;
     public UnityEvent onWin;
     public UnityEvent onLose;
     public UnityEvent onLeave;
@@ -71,6 +75,15 @@ public class GameManager : MonoBehaviour
             case GameState.lose:
                 onLose?.Invoke();
                 break;
+            case GameState.start_boss:
+                onStartBoss?.Invoke();
+                break;
+            case GameState.boss:
+                onBoss?.Invoke();
+                break;
+            case GameState.finish_boss:
+                onFinishBoss?.Invoke();
+                break;
             case GameState.leave:
                 onLeave?.Invoke();
                 break;
@@ -85,7 +98,11 @@ public enum GameState
 {
     introduction,
     in_play,
+    start_boss,
+    boss,
+    finish_boss,
     win,
     lose,
     leave
+
 }
