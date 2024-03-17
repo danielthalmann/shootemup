@@ -376,6 +376,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 201180091}
+  - component: {fileID: 201180093}
+  - component: {fileID: 201180092}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -401,6 +403,78 @@ Transform:
   m_Father: {fileID: 2018630200}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &201180092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201180090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f19071b0d50dc4689b58d54e19da30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 703908789}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Boss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 201180093}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2018630205}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!95 &201180093
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201180090}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9f7786727fdfad64ab490b2399e4896d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &333907094
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +673,72 @@ Transform:
   m_Father: {fileID: 201180091}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &405932777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 405932778}
+  - component: {fileID: 405932779}
+  m_Layer: 0
+  m_Name: Boss Path
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &405932778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405932777}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &405932779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405932777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ea383dc9ec26948bc6b386457c2447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vectors:
+  - point: {x: 0.020280749, y: -0.00029087067, z: 0}
+    curveLeft: {x: -1.4028671, y: -0.7082763, z: 0}
+    curveRight: {x: 1.4478886, y: 0.6637125, z: 0}
+  - point: {x: 4.316023, y: -0.61420417, z: 0}
+    curveLeft: {x: 4.349222, y: 0.87980366, z: 0}
+    curveRight: {x: 4.3160224, y: -1.6268096, z: 0}
+  - point: {x: -0.049800456, y: -0.9296055, z: 0}
+    curveLeft: {x: 2.224411, y: -2.7888148, z: 0}
+    curveRight: {x: -1.4288749, y: -0.2202425, z: 0}
+  - point: {x: -2.6776242, y: 0.5820098, z: 0}
+    curveLeft: {x: -0.79626554, y: -0.21783972, z: 0}
+    curveRight: {x: -3.6988244, y: 0.8813276, z: 0}
+  - point: {x: -5.212011, y: -0.60586905, z: 0}
+    curveLeft: {x: -5.2286124, y: 0.63913727, z: 0}
+    curveRight: {x: -5.233529, y: -1.802752, z: 0}
+  - point: {x: -2.9885688, y: -1.809025, z: 0}
+    curveLeft: {x: -4.635713, y: -2.1068122, z: 0}
+    curveRight: {x: -1.9522119, y: -1.354743, z: 0}
+  helper: 1
+  loopPath: 1
+  position: 1
 --- !u!1 &455118976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,7 +1428,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &703908787
 MonoBehaviour:
@@ -1482,18 +1622,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2000014228}
-        m_TargetAssemblyTypeName: Scroller, Assembly-CSharp
-        m_MethodName: StopScroller
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 455118978}
         m_TargetAssemblyTypeName: Scroller, Assembly-CSharp
         m_MethodName: StopScroller
@@ -1530,12 +1658,60 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onBoss:
-    m_PersistentCalls:
-      m_Calls:
+      - m_Target: {fileID: 466256065}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1240374339}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2018630199}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onBoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 466256065}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1240374339}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1854,7 +2030,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &772961842
 GameObject:
@@ -2388,7 +2564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8031860191230795408, guid: 8ea57766cfbe59a44b8a6141f5fe7b7d, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8031860191230795408, guid: 8ea57766cfbe59a44b8a6141f5fe7b7d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4397,7 +4573,7 @@ RectTransform:
   - {fileID: 335429620}
   - {fileID: 978381184}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5087,6 +5263,7 @@ GameObject:
   - component: {fileID: 2018630202}
   - component: {fileID: 2018630201}
   - component: {fileID: 2018630204}
+  - component: {fileID: 2018630205}
   m_Layer: 0
   m_Name: The Boss
   m_TagString: Untagged
@@ -5108,7 +5285,7 @@ Transform:
   m_Children:
   - {fileID: 201180091}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2018630201
 MonoBehaviour:
@@ -5245,6 +5422,24 @@ MonoBehaviour:
   ExplosionPrefab: {fileID: 1344841644576474714, guid: f35bdf0e899d202479135d76b568412c, type: 3}
   exploseOnTriggerTag: FireAllied
   destroyObject: 0
+--- !u!114 &2018630205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018630199}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4229a42f387bd094fab3368e770fbf2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: {fileID: 405932779}
+  speed: 0.05
+  t: 0
+  destroyAtEnd: 0
+  loop: 1
+  rotate: 0
 --- !u!1 &2081847020
 GameObject:
   m_ObjectHideFlags: 0

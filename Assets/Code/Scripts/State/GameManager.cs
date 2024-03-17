@@ -101,10 +101,23 @@ public class GameManager : MonoBehaviour
                 onFinishWave?.Invoke();
                 break;
             case GameState.win:
-                onWin?.Invoke();
+                if (currentState != GameState.lose)
+                {
+                    onWin?.Invoke();
+                }
+                else
+                {
+                    return;
+                }
                 break;
             case GameState.lose:
-                onLose?.Invoke();
+                if (currentState != GameState.win)
+                {
+                    onLose?.Invoke();
+                } else
+                {
+                    return;
+                }
                 break;
             case GameState.start_boss:
                 onStartBoss?.Invoke();
