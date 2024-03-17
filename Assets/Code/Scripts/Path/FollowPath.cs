@@ -11,15 +11,14 @@ public class FollowPath : MonoBehaviour
     [Range(0f, 1f)]
     public float t = 0;
     public bool destroyAtEnd = false;
-
-    private Quaternion origin_rotation;
+    public bool loop = false;
+    public bool rotate = true;
 
     Vector3 after;
     Vector3 vect;
 
     private void Start()
     {
-        origin_rotation = transform.rotation;
 
     }
 
@@ -35,15 +34,20 @@ public class FollowPath : MonoBehaviour
             after = path.GetPositionAt(t + (.03f));
             
             transform.position = path.GetPositionAt(t);
-            vect = after - transform.position;
-            vect.Normalize();
-            transform.GetChild(0).rotation = Quaternion.LookRotation(Vector3.forward, vect);
+            if (rotate)
+            {
+                vect = after - transform.position;
+                vect.Normalize();
+                transform.GetChild(0).rotation = Quaternion.LookRotation(Vector3.forward, vect);
+            }
 
         }
         else
         {
             if (destroyAtEnd)
                 Destroy(gameObject);
+            if (loop)
+                t = t % 1;
 
         }
 

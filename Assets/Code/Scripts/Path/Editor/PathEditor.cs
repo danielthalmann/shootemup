@@ -16,7 +16,9 @@ public class PathEditor : Editor
             return;
         // Handles.DrawWireArc(myObj.transform.position, Vector3.forward, myObj.transform.right, 180, radius);
 
-        for (int i = 0; i < path.vectors.Count; i++)
+        int i;
+
+        for (i = 0; i < path.vectors.Count; i++)
         {
             Vector3 last = path.vectors[i].point;
             path.vectors[i].point = Handles.PositionHandle(path.vectors[i].point + path.transform.position, path.transform.rotation) - path.transform.position;
@@ -24,13 +26,26 @@ public class PathEditor : Editor
             path.vectors[i].curveLeft += path.vectors[i].point - last;
             path.vectors[i].curveRight += path.vectors[i].point - last;
 
-            if (i > 0) { 
-                path.vectors[i].curveLeft = Handles.PositionHandle(path.vectors[i].curveLeft + path.transform.position, path.transform.rotation) - path.transform.position;
+            if (!path.loopPath)
+            {
+                if (i > 0)
+                {
+                    path.vectors[i].curveLeft = Handles.PositionHandle(path.vectors[i].curveLeft + path.transform.position, path.transform.rotation) - path.transform.position;
+                }
+                if (i < path.vectors.Count - 1)
+                {
+                    path.vectors[i].curveRight = Handles.PositionHandle(path.vectors[i].curveRight + path.transform.position, path.transform.rotation) - path.transform.position;
+                }
             }
-            if (i < path.vectors.Count - 1) { 
+            else
+            {
+                path.vectors[i].curveLeft = Handles.PositionHandle(path.vectors[i].curveLeft + path.transform.position, path.transform.rotation) - path.transform.position;
                 path.vectors[i].curveRight = Handles.PositionHandle(path.vectors[i].curveRight + path.transform.position, path.transform.rotation) - path.transform.position;
             }
-
+        }
+        if (path.loopPath && path.vectors.Count > 1)
+        {
+            //path.vectors[i].curveRight = Handles.PositionHandle(path.vectors[i].curveRight + path.transform.position, path.transform.rotation) - path.transform.position;
         }
     }
 
